@@ -1,0 +1,57 @@
+TRAÇO — PACOTE PWA (versão 1.5)
+
+O programa continua sendo um único arquivo HTML (index.html). Os outros arquivos existem só para o navegador instalar o Traço como aplicativo e abri-lo sem internet.
+
+ARQUIVOS
+- index.html: o Traço inteiro, com os metadados PWA e o registro do Service Worker.
+- manifest.webmanifest: nome, ícones, escopo e modo standalone.
+- service-worker.js: guarda o programa no aparelho para abrir sem internet depois do primeiro acesso e avisa quando há versão nova.
+- icons/: icon-192.png, icon-512.png, icon-maskable-512.png, apple-touch-icon.png e favicon-32.png.
+
+PUBLICAÇÃO NO GITHUB PAGES
+Atenção: não coloque estes arquivos na raiz do repositório Gestor_Grafica, porque o index.html do Traço substituiria o da Gestão da Gráfica.
+
+Opção A (recomendada): repositório novo
+1. Crie um repositório novo, por exemplo "Traco".
+2. Envie para a raiz dele: index.html, manifest.webmanifest, service-worker.js e a pasta icons/ (mantenha esses nomes).
+3. Em Settings > Pages, escolha "Deploy from a branch", branch main e pasta / (root).
+4. Aguarde a publicação. O endereço será parecido com https://eprintgraficadigital-eng.github.io/Traco/
+
+Opção B: pasta dentro do repositório que já existe
+1. Crie uma pasta "traco" no repositório e coloque dentro dela index.html, manifest.webmanifest, service-worker.js e icons/.
+2. Não altere o index.html da raiz.
+3. O endereço será parecido com https://eprintgraficadigital-eng.github.io/Gestor_Grafica/traco/
+
+Os caminhos dos arquivos são relativos, então funcionam nas duas opções. O endereço precisa ser https (o GitHub Pages já é).
+
+INSTALAR COMO APLICATIVO
+- Chrome no Android: abra o endereço, toque em ⋮ e escolha "Instalar app" (ou "Adicionar à tela inicial").
+- Chrome no computador: use o ícone de instalar na barra de endereço, ou o menu Opções > Instalar aplicativo… dentro do Traço (aparece quando o navegador permite instalar).
+- iPhone/iPad (Safari): Compartilhar > Adicionar à Tela de Início.
+
+USO NO CELULAR E NO TABLET
+- Barra de ferramentas na parte de baixo; o botão ☰ Painéis abre e fecha a gaveta de painéis (cores, camadas, etc.).
+- Um dedo usa a ferramenta atual. Dois dedos: pinça para ampliar ou reduzir e arrastar para mover a tela.
+- Toque longo abre o menu de contexto; toque duplo edita texto ou suaviza um nó.
+- As alças de seleção e dos nós ficam maiores em telas de toque.
+- Os menus (Arquivo, Editar…) rolam para os lados na barra do topo; a barra de valores (X, Y, L, A, cores) também rola para os lados.
+- As réguas começam desligadas no celular (Opções > Réguas para ligar).
+- No celular, "Salvar projeto" baixa o arquivo .traco.json, porque o Chrome do Android não deixa escolher a pasta. No computador, "Salvar como…" abre a janela de escolher pasta e nome.
+
+SOBRE OS DADOS
+O backup de verdade dos seus trabalhos é o arquivo .traco.json. O Traço também guarda no navegador uma cópia de recuperação, os trabalhos recentes e os modelos de formato personalizados. Esses dados ficam no navegador daquele aparelho e domínio: limpar os dados do site apaga tudo isso, e trocar de navegador, de aparelho ou de endereço começa do zero. Como o github.io é o mesmo domínio para todos os seus repositórios, "limpar dados do site" afeta todos os apps publicados nele.
+
+ATUALIZAÇÃO DO APLICATIVO
+Esta versão usa o cache "traco-pwa-v1.5". Para publicar uma versão nova:
+1. Substitua index.html (e os demais arquivos que mudaram) no GitHub.
+2. Troque o número em CACHE_NAME no service-worker.js (ex.: traco-pwa-v1.6) e o número em APP_SHELL, se for o caso.
+3. Abra o Traço com internet: aparece a faixa "Nova versão do Traço pronta" com o botão "Atualizar agora". Se escolher "Depois", a versão nova entra na próxima vez que abrir.
+A versão que está aberta aparece ao lado do nome "Traço" no topo e em Opções > Versões do Traço…
+
+HISTÓRICO DE VERSÕES
+1.5 (25/11/2026) Aplicativo instalável (PWA) para o GitHub Pages, com uso sem internet; adaptação para celular e tablet.
+1.4 (25/11/2026) Salvar como; modelos de formato personalizados; suavização de cantos só no editor de nós; versão visível.
+1.3 (25/11/2026) Pontilhado com tamanho e distância; cadeado de proporção depois das medidas L e A.
+1.2 (21/11/2026) Trava de proporção corrigida.
+1.1 (21/11/2026) Importação de SVG como vetor editável.
+1.0 (17/11/2026) Versão base.
